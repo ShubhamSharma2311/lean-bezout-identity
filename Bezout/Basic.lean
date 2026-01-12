@@ -10,7 +10,7 @@ As consequences: `a, b` are coprime iff `1` is such a combination, and units mod
 namespace Bezout
 
 /-- **Bézout's identity.** -/
-theorem bezout (a b : ℤ) : ∃ x y : ℤ, a * x + b * y = Int.gcd a b := by
-  sorry
+theorem bezout (a b : ℤ) : ∃ x y : ℤ, a * x + b * y = Int.gcd a b :=
+  ⟨Int.gcdA a b, Int.gcdB a b, (Int.gcd_eq_gcd_ab a b).symm⟩
 
 end Bezout

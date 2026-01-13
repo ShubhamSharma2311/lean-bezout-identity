@@ -13,4 +13,9 @@ namespace Bezout
 theorem bezout (a b : ℤ) : ∃ x y : ℤ, a * x + b * y = Int.gcd a b :=
   ⟨Int.gcdA a b, Int.gcdB a b, (Int.gcd_eq_gcd_ab a b).symm⟩
 
+/-- A common divisor divides every linear combination. -/
+lemma dvd_linear_combination {d a b : ℤ} (ha : d ∣ a) (hb : d ∣ b) (x y : ℤ) :
+    d ∣ a * x + b * y := by
+  sorry
+
 end Bezout

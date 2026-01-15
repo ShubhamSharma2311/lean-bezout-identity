@@ -15,7 +15,7 @@ theorem bezout (a b : ℤ) : ∃ x y : ℤ, a * x + b * y = Int.gcd a b :=
 
 /-- A common divisor divides every linear combination. -/
 lemma dvd_linear_combination {d a b : ℤ} (ha : d ∣ a) (hb : d ∣ b) (x y : ℤ) :
-    d ∣ a * x + b * y := by
-  sorry
+    d ∣ a * x + b * y :=
+  dvd_add (dvd_mul_of_dvd_left ha x) (dvd_mul_of_dvd_left hb y)
 
 end Bezout

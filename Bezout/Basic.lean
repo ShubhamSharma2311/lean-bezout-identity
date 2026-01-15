@@ -18,4 +18,8 @@ lemma dvd_linear_combination {d a b : ℤ} (ha : d ∣ a) (hb : d ∣ b) (x y : 
     d ∣ a * x + b * y :=
   dvd_add (dvd_mul_of_dvd_left ha x) (dvd_mul_of_dvd_left hb y)
 
+/-- `a` and `b` are coprime iff `1` is a linear combination of them. -/
+theorem gcd_eq_one_iff (a b : ℤ) : Int.gcd a b = 1 ↔ ∃ x y : ℤ, a * x + b * y = 1 := by
+  sorry
+
 end Bezout

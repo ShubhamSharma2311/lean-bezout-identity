@@ -20,6 +20,13 @@ lemma dvd_linear_combination {d a b : ℤ} (ha : d ∣ a) (hb : d ∣ b) (x y : 
 
 /-- `a` and `b` are coprime iff `1` is a linear combination of them. -/
 theorem gcd_eq_one_iff (a b : ℤ) : Int.gcd a b = 1 ↔ ∃ x y : ℤ, a * x + b * y = 1 := by
-  sorry
+  constructor
+  · intro h
+    obtain ⟨x, y, hxy⟩ := bezout a b
+    exact ⟨x, y, by rw [hxy, h]; rfl⟩
+  · rintro ⟨x, y, hxy⟩
+    have h1 : ((Int.gcd a b : ℕ) : ℤ) ∣ 1 :=
+      hxy ▸ dvd_linear_combination (Int.gcd_dvd_left a b) (Int.gcd_dvd_right a b) x y
+    exact_mod_cast Int.eq_one_of_dvd_one (by positivity) h1
 
 end Bezout

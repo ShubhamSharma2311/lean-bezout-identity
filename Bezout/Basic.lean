@@ -31,6 +31,9 @@ theorem gcd_eq_one_iff (a b : ℤ) : Int.gcd a b = 1 ↔ ∃ x y : ℤ, a * x + 
 
 /-- A number coprime to `n` has an inverse modulo `n`. -/
 theorem exists_inverse_mod {a n : ℤ} (h : Int.gcd a n = 1) : ∃ x : ℤ, a * x ≡ 1 [ZMOD n] := by
-  sorry
+  obtain ⟨x, y, hxy⟩ := (gcd_eq_one_iff a n).mp h
+  refine ⟨x, ?_⟩
+  rw [Int.modEq_iff_dvd]
+  exact ⟨y, by linarith⟩
 
 end Bezout

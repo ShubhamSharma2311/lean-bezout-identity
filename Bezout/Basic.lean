@@ -29,4 +29,8 @@ theorem gcd_eq_one_iff (a b : ℤ) : Int.gcd a b = 1 ↔ ∃ x y : ℤ, a * x + 
       hxy ▸ dvd_linear_combination (Int.gcd_dvd_left a b) (Int.gcd_dvd_right a b) x y
     exact_mod_cast Int.eq_one_of_dvd_one (by positivity) h1
 
+/-- A number coprime to `n` has an inverse modulo `n`. -/
+theorem exists_inverse_mod {a n : ℤ} (h : Int.gcd a n = 1) : ∃ x : ℤ, a * x ≡ 1 [ZMOD n] := by
+  sorry
+
 end Bezout
